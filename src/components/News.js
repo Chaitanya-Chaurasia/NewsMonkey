@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
-import { paste } from "@testing-library/user-event/dist/paste";
 
 export class News extends Component {
   constructor() {
@@ -9,6 +8,10 @@ export class News extends Component {
     this.state = {
       article: [],
       loading: false,
+      page: 1,
+      totalResults: 0,
+      btnNextDisabled: false,
+      btnPrevDisabled: true,
     };
   }
 
@@ -17,8 +20,46 @@ export class News extends Component {
       "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c5fbd10aa9894847a2e8785a2efc4e35";
     let response = await fetch(url);
     let parsedData = await response.json();
-    this.setState({ article: parsedData.articles });
+    this.setState({
+      article: parsedData.articles,
+      totalResults: parsedData.totalResults,
+    });
   }
+
+  handlePrevClick = async () => {
+    if (this.state.page - 1 < 1) {
+      this.setState({ btnPrevDisabled: true });
+    } else {
+      let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c5fbd10aa9894847a2e8785a2efc4e35&page=${
+        this.state.page - 1
+      }&pageSize=20`;
+      let response = await fetch(url);
+      let parsedData = await response.json();
+      this.setState({
+        page: this.state.page - 1,
+        article: parsedData.articles,
+        btnPrevDisabled: false,
+      });
+    }
+  };
+
+  handleNextClick = async () => {
+    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
+      this.setState({ btnNextDisabled: true });
+    } else {
+      let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c5fbd10aa9894847a2e8785a2efc4e35&page=${
+        this.state.page + 1
+      }&pageSize=20`;
+      let response = await fetch(url);
+      let parsedData = await response.json();
+      this.setState({
+        page: this.state.page + 1,
+        article: parsedData.articles,
+        btnNextDisabled: false,
+        btnPrevDisabled: false,
+      });
+    }
+  };
 
   render() {
     return (
@@ -38,12 +79,21 @@ export class News extends Component {
             );
           })}
         </div>
-        <div
-          className="container d-flex justify-content-around"
-          style={{ background: "none" }}
-        >
-          <button className="btn-dark">Previous</button>
-          <button className="btn-dark">Next</button>
+        <div className="container d-flex justify-content-around">
+          <button
+            className="btn btn-dark"
+            onClick={this.handlePrevClick}
+            disabled={this.state.btnPrevDisabled}
+          >
+            &larr; Previous
+          </button>
+          <button
+            className="btn btn-dark"
+            onClick={this.handleNextClick}
+            disabled={this.state.btnNextDisabled}
+          >
+            Next &rarr;
+          </button>
         </div>
       </div>
     );
