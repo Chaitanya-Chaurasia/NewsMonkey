@@ -4,7 +4,14 @@ export class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav
+          className="navbar navbar-expand-lg"
+          style={{
+            background: "#c9ffbf",
+            background: "-webkit-linear-gradient(to right, #c9ffbf, #ffafbd)",
+            background: "linear-gradient(to right, #c9ffbf, #ffafbd)",
+          }}
+        >
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               <strong>News</strong>Monkey
