@@ -10,14 +10,11 @@ export class News extends Component {
       loading: false,
       page: 1,
       totalResults: 0,
-      btnNextDisabled: false,
-      btnPrevDisabled: true,
     };
   }
 
   async componentDidMount() {
-    let url =
-      "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c5fbd10aa9894847a2e8785a2efc4e35";
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c5fbd10aa9894847a2e8785a2efc4e3&page=1&pageSize==${this.props.pageSize}`;
     let response = await fetch(url);
     let parsedData = await response.json();
     this.setState({
@@ -27,36 +24,34 @@ export class News extends Component {
   }
 
   handlePrevClick = async () => {
-    if (this.state.page - 1 < 1) {
-      this.setState({ btnPrevDisabled: true });
+    if (this.state.page <= 1) {
     } else {
       let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c5fbd10aa9894847a2e8785a2efc4e35&page=${
         this.state.page - 1
-      }&pageSize=20`;
+      }&pageSize=${this.props.pageSize}`;
       let response = await fetch(url);
       let parsedData = await response.json();
       this.setState({
         page: this.state.page - 1,
         article: parsedData.articles,
-        btnPrevDisabled: false,
       });
     }
   };
 
   handleNextClick = async () => {
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
-      this.setState({ btnNextDisabled: true });
+    if (
+      this.state.page + 1 >
+      Math.ceil(this.state.totalResults / this.props.pageSize)
+    ) {
     } else {
       let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c5fbd10aa9894847a2e8785a2efc4e35&page=${
         this.state.page + 1
-      }&pageSize=20`;
+      }&pageSize=${this.props.pageSize} `;
       let response = await fetch(url);
       let parsedData = await response.json();
       this.setState({
         page: this.state.page + 1,
         article: parsedData.articles,
-        btnNextDisabled: false,
-        btnPrevDisabled: false,
       });
     }
   };
@@ -83,14 +78,17 @@ export class News extends Component {
           <button
             className="btn btn-dark"
             onClick={this.handlePrevClick}
-            disabled={this.state.btnPrevDisabled}
+            disabled={this.state.page <= 1}
           >
             &larr; Previous
           </button>
           <button
             className="btn btn-dark"
             onClick={this.handleNextClick}
-            disabled={this.state.btnNextDisabled}
+            disabled={
+              this.state.page + 1 >
+              Math.ceil(this.state.totalResults / this.props.pageSize)
+            }
           >
             Next &rarr;
           </button>
