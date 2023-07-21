@@ -15,7 +15,7 @@ export class App extends Component {
               path="/"
               element={
                 <News
-                  key="general"
+                  key="general1"
                   pageSize={5}
                   country="in"
                   category="general"
@@ -27,7 +27,7 @@ export class App extends Component {
               path="/Science"
               element={
                 <News
-                  key="science"
+                  key="science1"
                   pageSize={5}
                   country="in"
                   category="science"
@@ -39,7 +39,7 @@ export class App extends Component {
               path="/Health"
               element={
                 <News
-                  key="health"
+                  key="health1"
                   pageSize={5}
                   country="in"
                   category="health"
@@ -51,7 +51,7 @@ export class App extends Component {
               path="/Sports"
               element={
                 <News
-                  key="sports"
+                  key="sports1"
                   pageSize={5}
                   country="in"
                   category="sports"
@@ -63,20 +63,19 @@ export class App extends Component {
               path="/Tech"
               element={
                 <News
-                  key="tech"
+                  key="tech1"
                   pageSize={5}
                   country="in"
                   category="technology"
                 />
               }
             />
-
             <Route
               exact
               path="/Business"
               element={
                 <News
-                  key="business"
+                  key="business1"
                   pageSize={5}
                   country="in"
                   category="business"
@@ -88,7 +87,7 @@ export class App extends Component {
               path="/Entertainment"
               element={
                 <News
-                  key="entertainment"
+                  key="entertainment1"
                   pageSize={5}
                   country="in"
                   category="entertainment"

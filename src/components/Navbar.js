@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 export class Navbar extends Component {
   render() {
     return (
-      <Router>
-        <div>
+      <div>
+        <Router>
           <nav
             className="navbar navbar-expand-lg"
             style={{
@@ -73,8 +73,8 @@ export class Navbar extends Component {
               </div>
             </div>
           </nav>
-        </div>
-      </Router>
+        </Router>
+      </div>
     );
   }
 }
