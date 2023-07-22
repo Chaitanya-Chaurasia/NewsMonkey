@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export class NewsItem extends Component {
   render() {
-    let { title, description, imageURL, url } = this.props;
+    let { title, description, imageURL, url, author, date } = this.props;
 
     return (
       <div className="my-3">
@@ -21,7 +21,20 @@ export class NewsItem extends Component {
             <p className="card-text">
               {!description
                 ? "Click `Read More` to read"
-                : description.slice(0, 88)}
+                : description.slice(0, 88) + "..."}
+              {date === new Date().toJSON().slice(0, 10) ||
+              date.slice(6, 10) ===
+                new Date().toJSON().slice(6, 8) +
+                  Number(new Date().toJSON().slice(8, 10) - 1) ? (
+                <span className="badge bg-warning text-dark mx-3">NEW!!</span>
+              ) : (
+                ""
+              )}
+            </p>
+            <p className="card-text">
+              <small className="text-muted">
+                By {author ? author : "Unknown"} on {date}
+              </small>
             </p>
             <a href={url} target="_blank" className="btn btn-sm btn-dark">
               Read More
