@@ -87,6 +87,7 @@ export class News extends Component {
         <div className="row ">
           {!this.state.loading &&
             this.state.article.map((element) => {
+              console.log(element.publishedAt);
               return (
                 <div className="col-md-3" key={element.url}>
                   <NewsItem
@@ -94,6 +95,8 @@ export class News extends Component {
                     description={element.description}
                     imageURL={element.urlToImage}
                     url={element.url}
+                    author={element.author}
+                    date={element.publishedAt.slice(0, 10)}
                   />
                 </div>
               );
