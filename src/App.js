@@ -7,15 +7,15 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <Router>
+          <Navbar />
           <Routes>
             <Route
               exact
               path="/"
               element={
                 <News
-                  key="general1"
+                  key="general"
                   pageSize={5}
                   country="in"
                   category="general"
@@ -24,10 +24,10 @@ export class App extends Component {
             />
             <Route
               exact
-              path="/Science"
+              path="/science"
               element={
                 <News
-                  key="science1"
+                  key="science"
                   pageSize={5}
                   country="in"
                   category="science"
@@ -36,10 +36,10 @@ export class App extends Component {
             />
             <Route
               exact
-              path="/Health"
+              path="/health"
               element={
                 <News
-                  key="health1"
+                  key="health"
                   pageSize={5}
                   country="in"
                   category="health"
@@ -48,10 +48,10 @@ export class App extends Component {
             />
             <Route
               exact
-              path="/Sports"
+              path="/sports"
               element={
                 <News
-                  key="sports1"
+                  key="sports"
                   pageSize={5}
                   country="in"
                   category="sports"
@@ -60,10 +60,10 @@ export class App extends Component {
             />
             <Route
               exact
-              path="/Tech"
+              path="/technology"
               element={
                 <News
-                  key="tech1"
+                  key="tech"
                   pageSize={5}
                   country="in"
                   category="technology"
@@ -72,10 +72,10 @@ export class App extends Component {
             />
             <Route
               exact
-              path="/Business"
+              path="/business"
               element={
                 <News
-                  key="business1"
+                  key="business"
                   pageSize={5}
                   country="in"
                   category="business"
@@ -84,10 +84,10 @@ export class App extends Component {
             />
             <Route
               exact
-              path="/Entertainment"
+              path="/entertainment"
               element={
                 <News
-                  key="entertainment1"
+                  key="entertainment"
                   pageSize={5}
                   country="in"
                   category="entertainment"
