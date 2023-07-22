@@ -16,7 +16,7 @@ export class App extends Component {
               element={
                 <News
                   key="general"
-                  pageSize={5}
+                  pageSize={4}
                   country="in"
                   category="general"
                 />
@@ -28,7 +28,7 @@ export class App extends Component {
               element={
                 <News
                   key="science"
-                  pageSize={5}
+                  pageSize={4}
                   country="in"
                   category="science"
                 />
@@ -40,7 +40,7 @@ export class App extends Component {
               element={
                 <News
                   key="health"
-                  pageSize={5}
+                  pageSize={4}
                   country="in"
                   category="health"
                 />
@@ -52,7 +52,7 @@ export class App extends Component {
               element={
                 <News
                   key="sports"
-                  pageSize={5}
+                  pageSize={4}
                   country="in"
                   category="sports"
                 />
@@ -64,7 +64,7 @@ export class App extends Component {
               element={
                 <News
                   key="tech"
-                  pageSize={5}
+                  pageSize={4}
                   country="in"
                   category="technology"
                 />
@@ -76,7 +76,7 @@ export class App extends Component {
               element={
                 <News
                   key="business"
-                  pageSize={5}
+                  pageSize={4}
                   country="in"
                   category="business"
                 />
@@ -88,7 +88,7 @@ export class App extends Component {
               element={
                 <News
                   key="entertainment"
-                  pageSize={5}
+                  pageSize={4}
                   country="in"
                   category="entertainment"
                 />

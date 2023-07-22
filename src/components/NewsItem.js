@@ -7,6 +7,9 @@ export class NewsItem extends Component {
     return (
       <div className="my-3">
         <div className="card">
+          <span className="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+            By {author ? author : "Unknown"}
+          </span>
           <img
             src={
               imageURL
@@ -17,7 +20,7 @@ export class NewsItem extends Component {
             alt="..."
           />
           <div className="card-body">
-            <h5 className="card-title">{title}</h5>
+            <h5 className="card-title">{title.slice(0, 45) + "..."}</h5>
             <p className="card-text">
               {!description
                 ? "Click `Read More` to read"
@@ -31,11 +34,7 @@ export class NewsItem extends Component {
                 ""
               )}
             </p>
-            <p className="card-text">
-              <small className="text-muted">
-                By {author ? author : "Unknown"} on {date}
-              </small>
-            </p>
+
             <a href={url} target="_blank" className="btn btn-sm btn-dark">
               Read More
             </a>
