@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
@@ -30,8 +30,8 @@ export class News extends Component {
   async updateNews(concat) {
     console.log("Current page is ", this.state.page);
     this.props.setProgress(10);
-
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=c5fbd10aa9894847a2e8785a2efc4e35&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    console.log(this.props.apiKey);
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
     this.setState({ loading: true });
 

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
 export class App extends Component {
+  apiKey = "c5fbd10aa9894847a2e8785a2efc4e35";
   pageSize = 4;
 
   state = {
@@ -27,6 +28,7 @@ export class App extends Component {
               path="/"
               element={
                 <News
+                  apiKey={this.apiKey}
                   setProgress={this.setProgress}
                   key="general"
                   pageSize={this.pageSize}
@@ -40,6 +42,7 @@ export class App extends Component {
               path="/science"
               element={
                 <News
+                  apiKey={this.apiKey}
                   setProgress={this.setProgress}
                   key="science"
                   pageSize={this.pageSize}
@@ -53,6 +56,7 @@ export class App extends Component {
               path="/health"
               element={
                 <News
+                  apiKey={this.apiKey}
                   setProgress={this.setProgress}
                   key="health"
                   pageSize={this.pageSize}
@@ -66,6 +70,7 @@ export class App extends Component {
               path="/sports"
               element={
                 <News
+                  apiKey={this.apiKey}
                   setProgress={this.setProgress}
                   key="sports"
                   pageSize={this.pageSize}
@@ -79,6 +84,7 @@ export class App extends Component {
               path="/technology"
               element={
                 <News
+                  apiKey={this.apiKey}
                   setProgress={this.setProgress}
                   key="tech"
                   pageSize={this.pageSize}
@@ -92,6 +98,7 @@ export class App extends Component {
               path="/business"
               element={
                 <News
+                  apiKey={this.apiKey}
                   setProgress={this.setProgress}
                   key="business"
                   pageSize={this.pageSize}
@@ -105,6 +112,7 @@ export class App extends Component {
               path="/entertainment"
               element={
                 <News
+                  apiKey={this.apiKey}
                   setProgress={this.setProgress}
                   key="entertainment"
                   pageSize={this.pageSize}
