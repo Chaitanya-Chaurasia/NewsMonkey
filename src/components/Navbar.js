@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 import Geolocation from "react-geolocation";
 
 const Navbar = () => {
-  const ChangeLocation = () => {
-    const location = navigator.geolocation.getC((position) => {
-      console.log(position);
-    });
-  };
   return (
     <div>
       <nav
@@ -82,20 +77,12 @@ const Navbar = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onClick={ChangeLocation}
-                    >
+                    <a className="dropdown-item" href="#">
                       Your Location
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onClick={ChangeLocation}
-                    >
+                    <a className="dropdown-item" href="#">
                       The United States
                     </a>
                   </li>

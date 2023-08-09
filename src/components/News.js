@@ -29,10 +29,10 @@ const News = (props) => {
     props.setProgress(100);
   };
 
-  // useEffect(() => {
-  //   document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
-  //   updateNews();
-  // }, []);
+  useEffect(() => {
+    document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
+    updateNews();
+  }, []);
 
   const fetchMoreData = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${
