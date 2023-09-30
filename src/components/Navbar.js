@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Geolocation from "react-geolocation";
 
-const Navbar = () => {
+const Navbar = function (props) {
   return (
     <div>
       <nav
@@ -14,7 +13,7 @@ const Navbar = () => {
         }}
       >
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to={props.login ? "/login-true" : "/"}>
             <strong>News</strong>Monkey
           </Link>
           <button
@@ -31,17 +30,26 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link
+                  className="nav-link"
+                  to={props.login ? "/login-true" : "/"}
+                >
                   Top News
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="business">
+                <Link
+                  className="nav-link"
+                  to={props.login ? "/login-true/business" : "/"}
+                >
                   Business
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="entertainment">
+                <Link
+                  className="nav-link"
+                  to={props.login ? "/login-true/entertainment" : "/"}
+                >
                   Entertainment
                 </Link>
               </li>
